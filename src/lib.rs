@@ -25,7 +25,7 @@
 
 
 use std::str::FromStr;
-
+use std::ops::Index;
 use syn::{__private::TokenStream, parse_macro_input, DeriveInput};
 use syn::Data;
 use syn::Fields;
