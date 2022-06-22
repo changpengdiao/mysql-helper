@@ -9,6 +9,7 @@ Make mysql to struct simple with macro
 Create a strcut which the feilds same with mysql-table feilds
 
     use mysql_helper::ModelHelper;
+    use std::ops::Index;
     #[derive(ModelHelper)]
     struct CustomStrcut{
         pub c_id : Option<i64>,

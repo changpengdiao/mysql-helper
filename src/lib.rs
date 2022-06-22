@@ -9,6 +9,7 @@
 //! Create a strcut which the feilds same with mysql-table feilds
 //! 
 //!     use mysql_helper::ModelHelper;
+//!     use std::ops::Index;
 //!     #[derive(ModelHelper)]
 //!     struct CustomStrcut{
 //!         pub c_id : Option<i64>,
@@ -57,7 +58,6 @@ pub fn derive_mysql_model_helper(input: TokenStream) -> TokenStream {
             // println!("v = {:?}",v);
             let tmp_s = v.join("\r\n");
             let s = format!("
-            use std::ops::Index;
             impl {} {{ \r\n
                 pub fn mysql_to_vo(row:mysql::Row)->Self{{ \r\n
                     let row = &mut row.clone(); \r\n
