@@ -25,7 +25,6 @@
 
 
 use std::str::FromStr;
-use std::ops::Index;
 use syn::{__private::TokenStream, parse_macro_input, DeriveInput};
 use syn::Data;
 use syn::Fields;
@@ -58,6 +57,7 @@ pub fn derive_mysql_model_helper(input: TokenStream) -> TokenStream {
             // println!("v = {:?}",v);
             let tmp_s = v.join("\r\n");
             let s = format!("
+            use std::ops::Index;
             impl {} {{ \r\n
                 pub fn mysql_to_vo(row:mysql::Row)->Self{{ \r\n
                     let row = &mut row.clone(); \r\n
